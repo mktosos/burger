@@ -11,7 +11,6 @@ function printQuestionMarks(num) {
   return arr.toString();
 };
 
-
 // Object for all our SQL statement functions.
 var orm = {
     selectAll: function(tableInput, cb) {
@@ -52,7 +51,7 @@ var orm = {
       var queryString = "UPDATE " + table;
   
       queryString += " SET ";
-      queryString += objToSql(objColVals);
+      queryString += "devoured = 1"
       queryString += " WHERE ";
       queryString += condition;
   
@@ -61,11 +60,11 @@ var orm = {
         if (err) {
           throw err;
         }
-  
+        console.log("condition updated")
         cb(result);
       });
     }
   };
   
-  // Export the orm object for the model (cat.js).
+ 
   module.exports = orm;
